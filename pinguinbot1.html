@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Tap Game</title> 
+  <style>
+        /* Стиль для игрового экрана */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .game-container {
+            text-align: center;
+        }
+
+        .counter {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .tap-button {
+            padding: 20px 40px;
+            font-size: 24px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .tap-button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            margin-top: 20px;
+            color: #888;
+        }
+    </style> 
+ <style type="text/css" id="dcoder_stylesheet">.tap-button:active {
+    transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+    transition: transform 0.1s;
+}</style></head> 
+ <body> 
+  <div class="game-container"> 
+   <h1>Игра с Тапом!</h1> 
+   <div class="counter" id="counter">
+     0 
+   </div> <button class="tap-button" id="tapButton">Тап!</button> 
+   <div class="footer">
+     Нажимай кнопку и увеличивай счёт! 
+   </div> 
+  </div> 
+  <script>
+        let counter = 0; // Начальный счёт
+        // Обработчик нажатия кнопки "Тап!"
+        document.getElementById('tapButton').onclick = function() {
+            counter++;  // Увеличиваем счёт
+            document.getElementById('counter').innerText = counter; // Обновляем счётчик
+        };
+    </script> 
+ 
+<script type="text/javascript" id="dcoder_script">let timeLimit = 30; // Время игры в секундах
+let timer = setInterval(function() {
+    timeLimit--;
+    if (timeLimit <= 0) {
+        clearInterval(timer);
+        alert('Время вышло! Твой счёт: ' + counter);
+    }
+}, 1000);</script></body></html>
